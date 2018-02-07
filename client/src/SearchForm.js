@@ -9,22 +9,26 @@ class SearchForm extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        let artistName;
+
+        let artistName; // dummy data
         if (this.state.artistName === "a") {
             artistName = "Woodkid"
         } else {
             artistName = "Radiohead"
         }
         this.props.onSubmitSearchForm(artistName);
-        this.setState({ artist: '' }); // end of dummy data
-        
-        // var url = `&q=${this.state.artist}`
+        this.setState({ artistName: '' }); // end of dummy data
+
+        // var url = `&q=${this.state.artistName}`
         // axios.get(url)
         //     .then(response => {
         //         console.log(response);
-        //         
-        //         this.props.onSubmitSearchForm(artistName);
-        //         this.setState({ artistName: '' });
+        //         if (response) {
+        //             this.props.onSubmitSearchForm(artistName);
+        //             this.setState({ artistName: '' });
+        //         } else {
+        //             alert('Ooops, try again')
+        //         }
         //     })
         //     .catch(error => {
         //         console.log('Error fetching and parsing data', error);
@@ -41,7 +45,7 @@ class SearchForm extends React.Component {
                         placeholder="Enter artist"
                         required
                         value={this.state.artistName}
-                        onChange={(event) => this.setState({artistName: event.target.value })} />
+                        onChange={(event) => this.setState({ artistName: event.target.value })} />
                     <span className="input-group-btn">
                         <button className="btn btn-default" type="submit">Go!</button>
                     </span>
