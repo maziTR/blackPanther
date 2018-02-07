@@ -1,5 +1,5 @@
 {
-  "name": "spacebook-c2",
+  "name": "black-panther",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maziTR/spacebook-fullstack.git"
+    "url": "git+https://github.com/maziTR/blackPanther.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/swinston1000/spacebook-c2/issues"
+    "url": "https://github.com/maziTR/blackPanther/issues"
   },
-  "homepage": "https://github.com/swinston1000/spacebook-c2#readme",
+  "homepage": "https://github.com/maziTR/blackPanther#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "bootstrap": "^3.3.7",
