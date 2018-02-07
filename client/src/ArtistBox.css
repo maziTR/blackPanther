@@ -1,31 +1,24 @@
 .ArtistBox {
     float:left;
-    padding: 10% 0 0 5%;
+    padding: 5% 0 0 5%;
 }
-
 .col-30 {
     width: 30%;
 }
-
 .main-artist-img {
     height: 300px;
 }
-
-
 .main-artist-title {
 
 }
-
 .play-button {
     border: none;
     background-color: white;
     display: inline-block;
 }
-
 .play-button img {
     height: 35px;
 }
-
 .main-artist-song {
     display: inline;    
 }
