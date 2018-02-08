@@ -11,6 +11,7 @@ class App extends Component {
     this.searchRelated = this.searchRelated.bind(this);
     this.state = { artistId: "", artistName: "", relArtists: [] };
   }
+
   searchArtist(artistName) {
     const baseUrl = `http://api.musixmatch.com/ws/1.1/`;
     const apikey = `&apikey=9a1d5a8de6743ba0370a953a471dc3b9`;
@@ -80,20 +81,13 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.artistName) {
+    let artistBox = this.state.artistName?  <ArtistBox artistInfo={this.state} searchArtist={this.searchArtist}/>:null;
       return (
         <div className="App">
           <p className="App-title">BLACK PANTHER</p>
-          <SearchForm onSubmitSearchForm={this.onSubmitSearchForm} />
-          <ArtistBox artistInfo={this.state} searchArtist={this.searchArtist}/>
-        </div>
-      )
-    } else return (
-      <div className="App">
-        <p className="App-title">BLACK PANTHER</p>
-        <SearchForm searchArtist={this.searchArtist} />
-      </div>
-    );
+        <SearchForm searchArtist={this.searchArtist}/>
+        {artistBox}
+      </div> );
   }
 }
 
