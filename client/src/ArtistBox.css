@@ -4,15 +4,17 @@
     padding: 20px 100px;
     grid-template-columns: 0.9fr 3fr 1fr;
     grid-template-rows: auto;
-    background-color: black;
+    background-color: none;
 }
 
 .grid-item {
     margin: 0 5px;
     padding: 10px;
-    background: rgb(255, 255, 255);
-    border-radius: 5px;
-    border: 1px solid #fff;
+    background: rgba(255, 255, 255, 0.37);
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.37);
+    box-shadow: 0 0 5px rgba(0,0,0,0.6); 
+    font: 'Muli', sans-serif;
 }
 
 .MainArtistBox {
@@ -23,15 +25,15 @@
     
 }
 
-.search-list {
-
+.search-list h4 {
+font: 'Muli', sans-serif;
 }
 
 .main-artist-img {
     height: 300px;
 }
 .main-artist-title {
-
+font: 'Muli', sans-serif;
 }
 .play-button {
     border: none;
@@ -43,6 +45,7 @@
 }
 .main-artist-song {
     display: inline;    
+    font: 'Muli', sans-serif;
 }
 
 /* Related artist Box */
@@ -55,7 +58,7 @@
     height: 120px;
 }
 .rel-artist-title {
-
+    font: 'Muli', sans-serif;
 }
 .play-button {
     border: none;
@@ -66,5 +69,6 @@
     height: 35px;
 }
 .rel-artist-song {
-    display: inline;    
+    display: inline;
+    font: 'Muli', sans-serif;    
 }
