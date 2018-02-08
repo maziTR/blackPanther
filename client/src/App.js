@@ -8,10 +8,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.onSubmitSearchForm = this.onSubmitSearchForm.bind(this);
-    this.state = { artistName: "" };
+    this.state = { artistId: "", artistName: ""  };
   }
   onSubmitSearchForm(data) {
-    this.setState({ artistName: data });
+    this.setState(data);
   }
 
 fetchArtist=()=>{
