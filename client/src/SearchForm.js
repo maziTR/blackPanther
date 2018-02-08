@@ -9,6 +9,7 @@ class SearchForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.searchArtist(this.state.artistName);
+        this.setState({ artistName: "" });
     }
     render() {
         return (
