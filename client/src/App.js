@@ -20,14 +20,14 @@ class App extends Component {
     if (this.state.artistName) {
       return (
         <div className="App">
-          <p className="App-title">BLACK PANTHER</p>
+          <p className="App-title">WOODEN PANTHER</p>
           <SearchForm onSubmitSearchForm={this.onSubmitSearchForm} />
           <ArtistBox artistName={this.state.artistName} />
         </div>
       )
     } else return (
       <div className="App">
-        <p className="App-title">BLACK PANTHER</p>
+        <p className="App-title">WOODEN PANTHER</p>
         <SearchForm onSubmitSearchForm={this.onSubmitSearchForm} />
       </div>
     );
