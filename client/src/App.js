@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.searchArtist = this.searchArtist.bind(this);
     this.searchRelated = this.searchRelated.bind(this);
-    this.state = { artistId: "", artistName: "", artistImg: "", relArtists: [] };
+    this.state = { artistId: "", artistName: "", artistImg: "", song: "", relArtists: [] };
   }
 
   searchArtist(artistName) {
@@ -43,6 +43,7 @@ class App extends Component {
       })
       .then(function () {
         that.getImage();
+        that.searchTrack();
         that.searchRelated();
       })
       .catch(error => {
@@ -100,10 +101,37 @@ class App extends Component {
       .then(function (response) {
         console.log(response.data.message.body.album_list);
 
-/*         that.setState(
-          {
-            artistImg: response.data.message.body.album_list[0].album.album_coverart_100x100
-          }); */
+        /*         that.setState(
+                  {
+                    artistImg: response.data.message.body.album_list[0].album.album_coverart_100x100
+                  }); */
+
+      }).catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
+  }
+
+  searchTrack() {
+    let that = this;
+    const query = `http://api.musixmatch.com/ws/1.1/track.search?q_artist=${this.state.artistName}&page_size=1&page=1&s_track_rating=desc`
+    axios({
+      type: "GET",
+      method: "GET",
+      url: `${query}&apikey=9a1d5a8de6743ba0370a953a471dc3b9`,
+      headers: {
+        'apikey': "9a1d5a8de6743ba0370a953a471dc3b9",
+        'format': "jsonp",
+        'callback': "jsonp_callback",
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      dataType: "jsonp",
+      jsonpCallback: 'jsonp_callback',
+    })
+      .then(function (response) {
+        console.log(response.data.message.body.track_list[0].track.track_name);
+        that.setState(
+          {song: response.data.message.body.track_list[0].track.track_name});
 
       }).catch(error => {
         console.log('Error fetching and parsing data', error);
@@ -111,13 +139,13 @@ class App extends Component {
   }
 
   render() {
-    let artistBox = this.state.artistName?  <ArtistBox artistInfo={this.state} searchArtist={this.searchArtist}/>:null;
-      return (
-        <div className="App">
-          <p className="App-title">WOODEN PANTHER</p>
-        <SearchForm searchArtist={this.searchArtist}/>
+    let artistBox = this.state.artistName ? <ArtistBox artistInfo={this.state} searchArtist={this.searchArtist} /> : null;
+    return (
+      <div className="App">
+        <p className="App-title">WOODEN PANTHER</p>
+        <SearchForm searchArtist={this.searchArtist} />
         {artistBox}
-      </div> );
+      </div>);
   }
 }
 
