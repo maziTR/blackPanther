@@ -47,9 +47,7 @@ class SearchForm extends React.Component {
                         value={this.state.artistName}
                         onChange={(event) => this.setState({ artistName: event.target.value })} />
                         <span class="focus-border"></span>
-                </div>
-                <div className="input-group-btn">
-                        <button className="btn btn-default round red" type="submit">Go!</button>
+                        <button className="btn btn-default" type="submit">Go!</button>
                         <span class="round"></span>
                 </div>
             </form>
