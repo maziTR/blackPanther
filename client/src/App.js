@@ -119,6 +119,6 @@ class App extends Component {
         {artistBox}
       </div> );
   }
-
+}
 
 export default App;
