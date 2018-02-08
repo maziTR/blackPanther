@@ -76,7 +76,7 @@ letter-spacing: 1px;}
   width: 50px;
   height: 50px;
 }
-@-moz-keyframes rotate {
+/* @-moz-keyframes rotate {
   0% {transform: rotate(0deg);}
   100% {transform: rotate(-360deg);}
 }
@@ -148,5 +148,5 @@ button.red {
 
 button.red:hover {
   color: rgb(255, 255, 255);
-}
+} */
 
