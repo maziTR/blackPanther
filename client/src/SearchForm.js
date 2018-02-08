@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import request from 'axios-add-jsonp'
 
 
 class SearchForm extends React.Component {
@@ -21,71 +20,41 @@ class SearchForm extends React.Component {
         // this.props.onSubmitSearchForm(artistName);
         // this.setState({ artistName: '' }); // end of dummy data
 
-        let artistName = this.props.artistName;
-        artistName = 'prodigy'
+        let artistName = this.state.artistName;
         const baseUrl = `http://api.musixmatch.com/ws/1.1/`;
         const apikey = `&apikey=9a1d5a8de6743ba0370a953a471dc3b9`;
         const artistSearch = `artist.search?q_artist=${artistName}&page_size=1`;
         const relatedSearch = `artist.related.get?artist_id=56&page_size=3&page=1`;
         let that = this;
 
-        let url = `${baseUrl}${artistSearch}${apikey}`;
-        request.jsonp(url, {
-            // url: `${baseUrl}${artistSearch}${apikey}`, // 
-            // headers: {
+        axios({
+            type: "GET",
+            method: "GET",
+            url: `${baseUrl}${artistSearch}${apikey}`, // 
+            headers: {
                 'apikey': "9a1d5a8de6743ba0370a953a471dc3b9",
                 'format': "jsonp",
                 'callback': "jsonp_callback",
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Access-Control-Request-Method': 'GET'
-            // },
-            // dataType: "jsonp",
-            // jsonpCallback: 'jsonp_callback',
-            /*   contentType: 'application/json' */
+            },
+            dataType: "jsonp",
+            jsonpCallback: 'jsonp_callback',
         })
-            .then(res => {
-                console.log(res.data);
+            .then(function (response) {
+                console.log(response.data);
+                that.props.onSubmitSearchForm(
+
+                    {
+                        artistId: response.data.message.body.artist_list[0].artist.artist_id,
+                        artistName: response.data.message.body.artist_list[0].artist.artist_name
+                    }
+                );
             })
             .catch(error => {
                 console.log('Error fetching and parsing data', error);
             });
-
-
-        // axios({
-        //     type: "GET",
-        //     method: "GET",
-        //     url: `${baseUrl}${artistSearch}${apikey}`, // 
-        //     headers: {
-        //         'apikey': "9a1d5a8de6743ba0370a953a471dc3b9",
-        //         'format': "jsonp",
-        //         'callback': "jsonp_callback",
-        //         'Content-Type': 'application/json',
-        //         'Accept': 'application/json',
-        //         'Access-Control-Request-Method': 'GET'
-        //     },
-        //     dataType: "jsonp",
-        //     jsonpCallback: 'jsonp_callback',
-        //     /*   contentType: 'application/json' */
-        // })
-        //     .then(function (response) {
-        //         console.log(response.data);
-        //         that.props.onSubmitSearchForm(
-
-        //             {
-        //                 artistId: response.data.message.artist_list.artist_id,
-        //                 artistName: response.data.artist_list.artist_name
-        //             }
-
-        //             // {
-        //             //     artistId: response.body.artist_list.artist_id,
-        //             //     artistName: response.body.artist_list.artist_name
-        //             // }
-        //         );
-        //     })
-        //     .catch(error => {
-        //         console.log('Error fetching and parsing data', error);
-        //     });
     }
 
     render() {
