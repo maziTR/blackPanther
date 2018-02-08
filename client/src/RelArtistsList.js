@@ -4,7 +4,7 @@ import RelArtist from './RelArtist';
 const RelArtistsList = (props) => {
     const relArtists = props.relArtists.map((item, index) => <RelArtist key={index} index={index} relArtistName={item}/>)
     return (
-      <div>
+      <div className="grid-item">
         {relArtists}
       </div>
     );
