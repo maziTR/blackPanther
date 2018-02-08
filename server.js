@@ -2,25 +2,31 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTION_STRING || 'mongodb://localhost/spacebookDB', {
+var app = express();
+/* mongoose.connect(process.env.CONNECTION_STRING || 'mongodb://localhost/spacebookDB', {
   useMongoClient: true
 }, function (err, db) {
   if (err) {
     return console.error(err);
   }
   console.log("DB connection established!");
+}); */
+
+//var Post = require('./models/postModel');
+app.get('/', function (req, res) {
+    res.send("connected");
+    
 });
 
-var Post = require('./models/postModel');
 
-var app = express();
-app.use(express.static('public'));
+
+/* app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
+ */
 //handle getting all posts and their comments
 /* 
 app.get('/posts', function (req, res) {
