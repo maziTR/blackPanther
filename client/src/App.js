@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.searchArtist = this.searchArtist.bind(this);
     this.searchRelated = this.searchRelated.bind(this);
-    this.state = { artistId: "", artistName: "", relArtists: [] };
+    this.state = { artistId: "", artistName: "", artistImg: "", relArtists: [] };
   }
 
   searchArtist(artistName) {
@@ -42,6 +42,7 @@ class App extends Component {
         );
       })
       .then(function () {
+        that.getImage();
         that.searchRelated();
       })
       .catch(error => {
@@ -78,6 +79,35 @@ class App extends Component {
         }
         that.setState({ relArtists: relArtists });
       })
+  }
+
+  getImage() {
+    let that = this;
+    axios({
+      type: "GET",
+      method: "GET",
+      url: `http://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${this.state.artistId}&s_release_date=desc&g_album_name=1&apikey=9a1d5a8de6743ba0370a953a471dc3b9`,
+      headers: {
+        'apikey': "9a1d5a8de6743ba0370a953a471dc3b9",
+        'format': "jsonp",
+        'callback': "jsonp_callback",
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      dataType: "jsonp",
+      jsonpCallback: 'jsonp_callback',
+    })
+      .then(function (response) {
+        console.log(response.data.message.body.album_list);
+
+/*         that.setState(
+          {
+            artistImg: response.data.message.body.album_list[0].album.album_coverart_100x100
+          }); */
+
+      }).catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
   }
 
   render() {
