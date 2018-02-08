@@ -69,9 +69,9 @@ class SearchForm extends React.Component {
                         required
                         value={this.state.artistName}
                         onChange={(event) => this.setState({ artistName: event.target.value })} />
-                        <span class="focus-border"></span>
-                        <button className="btn btn-default" type="submit">Go!</button>
-                        <span class="round"></span>
+                    <span className="focus-border"></span>
+                    <button className="btn btn-default" type="submit">Go!</button>
+                    <span className="round"></span>
                 </div>
             </form>
         )
