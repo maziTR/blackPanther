@@ -15,9 +15,8 @@ class App extends Component {
     const baseUrl = `http://api.musixmatch.com/ws/1.1/`;
     const apikey = `&apikey=9a1d5a8de6743ba0370a953a471dc3b9`;
     const artistSearch = `artist.search?q_artist=${artistName}&page_size=1`;
-    const relatedSearch = `artist.related.get?artist_id=${this.state.artistId}&page_size=3&page=1`;
+    // const relatedSearch = `artist.related.get?artist_id=${this.state.artistId}&page_size=3&page=1`;
     let that = this;
-
     axios({
       type: "GET",
       method: "GET",
@@ -54,7 +53,7 @@ class App extends Component {
     axios({
       type: "GET",
       method: "GET",
-      url: `http://api.musixmatch.com/ws/1.1/artist.related.get?artist_id=${this.state.artistId}&page_size=3&page=1&apikey=9a1d5a8de6743ba0370a953a471dc3b9`, // 
+      url: `http://api.musixmatch.com/ws/1.1/artist.related.get?artist_id=${this.state.artistId}&page_size=3&page=1&apikey=9a1d5a8de6743ba0370a953a471dc3b9`,
       headers: {
         'apikey': "9a1d5a8de6743ba0370a953a471dc3b9",
         'format': "jsonp",
@@ -86,7 +85,7 @@ class App extends Component {
         <div className="App">
           <p className="App-title">BLACK PANTHER</p>
           <SearchForm onSubmitSearchForm={this.onSubmitSearchForm} />
-          <ArtistBox artistName={this.state.artistName} />
+          <ArtistBox artistInfo={this.state} searchArtist={this.searchArtist}/>
         </div>
       )
     } else return (
