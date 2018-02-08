@@ -8,11 +8,13 @@
 }
 
 .grid-item {
-    margin: 0 5px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.37);
-    border-radius: 2px;
-    border: 1px solid rgba(255, 255, 255, 0.37);
+    height: auto;
+    margin: 0 3px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.98);
     box-shadow: 0 0 5px rgba(0,0,0,0.6); 
     font: 'Muli', sans-serif;
 }
@@ -25,15 +27,23 @@
     
 }
 
-.search-list h4 {
+.RelArtistBox {
+    height: 150px;
+}
+
+.search-list p {
 font: 'Muli', sans-serif;
+
 }
 
 .main-artist-img {
+    padding-top: 50px;
     height: 300px;
 }
 .main-artist-title {
-font: 'Muli', sans-serif;
+    margin: 10px;
+    font-size: 50px;
+    font:'Muli', sans-serif;
 }
 .play-button {
     border: none;
@@ -55,10 +65,12 @@ font: 'Muli', sans-serif;
 }
 
 .rel-artist-img {
-    height: 120px;
+    height: 80px;
+    cursor: pointer;
 }
 .rel-artist-title {
     font: 'Muli', sans-serif;
+    font-size: 20px;
 }
 .play-button {
     border: none;

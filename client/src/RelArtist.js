@@ -1,5 +1,6 @@
 import React from 'react';
 import './RelArtist.js'
+import './ArtistBox.css'
 
 class RelArtist extends React.Component {
     moveToMain = () => this.props.searchArtist(this.props.relArtistName); // onClick for the pic
