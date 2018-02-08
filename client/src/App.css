@@ -159,3 +159,7 @@ img.rel-artist-img:hover {
   -webkit-margin-after: 0.2em;
 }
 input:focus::-webkit-input-placeholder { color:transparent; }
+
+.play-button{
+  background-color: #ffffff00 !important;
+}
