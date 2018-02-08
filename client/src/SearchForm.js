@@ -22,11 +22,11 @@ class SearchForm extends React.Component {
                         placeholder="Enter artist"
                         required
                         value={this.state.artistName}
-                        autocomplete="off"
+                        autoComplete="off"
                         onChange={(event) => this.setState({ artistName: event.target.value })} />
                     <span className="focus-border"></span>
                 </div>
-                <div class="button__holder">
+                <div className="button__holder">
                     <button className="btn btn-default plus" type="submit">GO</button>
                 </div>
             </form>
