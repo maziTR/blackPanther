@@ -1,10 +1,32 @@
 .ArtistBox {
-    float:left;
-    padding: 5% 0 0 5%;
+    display: grid;
+    margin:auto;
+    padding: 20px 100px;
+    grid-template-columns: 0.9fr 3fr 1fr;
+    grid-template-rows: auto;
+    background-color: black;
 }
-.col-30 {
-    width: 30%;
+
+.grid-item {
+    margin: 0 5px;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid #fff;
 }
+
+.MainArtistBox {
+
+}
+
+.RelArtistList {
+    
+}
+
+.search-list {
+
+}
+
 .main-artist-img {
     height: 300px;
 }
@@ -20,5 +42,29 @@
     height: 35px;
 }
 .main-artist-song {
+    display: inline;    
+}
+
+/* Related artist Box */
+.RelArtistBox {
+    margin:auto;
+    padding: 5% 0 0 5%;
+}
+
+.rel-artist-img {
+    height: 120px;
+}
+.rel-artist-title {
+
+}
+.play-button {
+    border: none;
+    background-color: white;
+    display: inline-block;
+}
+.play-button img {
+    height: 35px;
+}
+.rel-artist-song {
     display: inline;    
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchForm from './SearchForm';
 import ArtistBox from './ArtistBox';
-import axios from 'axios';
+// import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -159,33 +159,33 @@ fetchArtist=()=>{
   } */
 }
 
-api=()=>{
-    const baseUrl =`http://api.musixmatch.com/ws/1.1/`;
-    const apikey = `&apikey=9a1d5a8de6743ba0370a953a471dc3b9`;
+// api=()=>{
+//     const baseUrl =`http://api.musixmatch.com/ws/1.1/`;
+//     const apikey = `&apikey=9a1d5a8de6743ba0370a953a471dc3b9`;
 
-    axios({
-      type: "GET",
-      method: "GET",
-      url: 'http://api.musixmatch.com/ws/1.1/images/albums8/1/1/7/9/1/4/26419711.jpg&apikey=9a1d5a8de6743ba0370a953a471dc3b9',
-      headers: {
-          'apikey':"9a1d5a8de6743ba0370a953a471dc3b9",
-          'format':"jsonp",
-          'callback':"jsonp_callback",
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-      },
-      dataType: "jsonp",
-      jsonpCallback: 'jsonp_callback',
-    /*   contentType: 'application/json' */
-    })
-    .then(function(response) {
-      console.log(response.data);
-    })
-   .catch(error => {
-       console.log('Error fetching and parsing data', error);
-   });  
+//     axios({
+//       type: "GET",
+//       method: "GET",
+//       url: 'http://api.musixmatch.com/ws/1.1/images/albums8/1/1/7/9/1/4/26419711.jpg&apikey=9a1d5a8de6743ba0370a953a471dc3b9',
+//       headers: {
+//           'apikey':"9a1d5a8de6743ba0370a953a471dc3b9",
+//           'format':"jsonp",
+//           'callback':"jsonp_callback",
+//           'Content-Type': 'application/json',
+//           'Accept': 'application/json'
+//       },
+//       dataType: "jsonp",
+//       jsonpCallback: 'jsonp_callback',
+//     /*   contentType: 'application/json' */
+//     })
+//     .then(function(response) {
+//       console.log(response.data);
+//     })
+//    .catch(error => {
+//        console.log('Error fetching and parsing data', error);
+//    });  
    
-}
+// }
 
 handleSubmit=(event)=>{
     event.preventDefault();
@@ -196,22 +196,22 @@ handleSubmit=(event)=>{
     if (this.state.artistName) {
       return (
         <div className="App">
-        <h1>Black Panther</h1>
+        <p className="App-title">BLACK PANTHER</p>
         <SearchForm onSubmitSearchForm={this.onSubmitSearchForm} />
-        <form onLoad={this.handleSubmit} action="#" id="getWeatherForm" onSubmit={this.handleSubmit}>
+        {/* <form onLoad={this.handleSubmit} action="#" id="getWeatherForm" onSubmit={this.handleSubmit}>
         <div className="input-group">
             <span className="input-group-btn">
                 <button className="btn btn-default" type="submit">Go!</button>
                 
             </span>
         </div>
-        </form>
+        </form> */}
         <ArtistBox artistName={this.state.artistName}/>
       </div>
       )
     } else return (
       <div className="App">
-        <h1>Black Panther</h1>
+        <p className="App-title">BLACK PANTHER</p>
         <SearchForm onSubmitSearchForm={this.onSubmitSearchForm} />
       </div>
     );
