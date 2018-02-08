@@ -1,14 +1,14 @@
 .ArtistBox {
     display: grid;
     margin:auto;
-    padding: 20px 30px 20px 30px;
-    grid-template-columns: 150px 1fr 1fr;
+    padding: 20px 100px;
+    grid-template-columns: 0.9fr 3fr 1fr;
     grid-template-rows: auto;
     background-color: black;
 }
 
 .grid-item {
-    margin: 5px;
+    margin: 0 5px;
     padding: 10px;
     background: rgb(255, 255, 255);
     border-radius: 5px;

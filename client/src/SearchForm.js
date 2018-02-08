@@ -37,18 +37,20 @@ class SearchForm extends React.Component {
     render() {
         return (
             <form action="#" id="getArtist" onSubmit={this.handleSubmit}>
-                <div className="input-group">
+                <div className="input-group-wrap">
                     <input
                         type="text"
-                        className="form-control"
+                        className="input-field effect-1"
                         id="artistName"
                         placeholder="Enter artist"
                         required
                         value={this.state.artistName}
                         onChange={(event) => this.setState({ artistName: event.target.value })} />
-                    <span className="input-group-btn">
-                        <button className="btn btn-default" type="submit">Go!</button>
-                    </span>
+                        <span class="focus-border"></span>
+                </div>
+                <div className="input-group-btn">
+                        <button className="btn btn-default round red" type="submit">Go!</button>
+                        <span class="round"></span>
                 </div>
             </form>
         )
